@@ -1,0 +1,33 @@
+doctype html
+html(lang="en")
+    include ../partials/head
+    body.login 
+        .contenedor-formulario
+            h1 Iniciar Sesión en IDCAS Task
+
+            if error 
+                .alertas 
+                    p.alert= error
+                    
+            if locals.messages
+                .alertas 
+                    each category in Object.keys(locals.messages)
+                        each error in messages[category]
+                            .alerta
+                                p.error= error
+
+            form#formulario.caja.caja-login(method="POST" action="/usuario/auth")
+                .campo
+                    label(for="email") Email: 
+                    input(type="email" name="email" placeholder="Tu email" value= email) 
+                
+                .campo
+                    label(for="password") Contraseña: 
+                    input(type="password" name="password" placeholder="Tu contraseña" )
+                
+                .campo.enviar 
+                    input.boton(type="submit", value="Iniciar Sesión")
+
+                .campo.acciones 
+                    a(href="/registro/crear") Aún no tiene cuenta? Crea una gratís
+                    a(href="/usuario/reset-form") Olvidaste la contraseña

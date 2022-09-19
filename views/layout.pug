@@ -1,0 +1,22 @@
+doctype html
+html(lang="en")
+    include partials/head
+    body
+        header.barra
+            h1 IDCAS - Administrador de projectos 
+            a(href="/usuario/logout") Cerrar Sesión
+        
+        main.contenedor 
+            aside.contenedor-proyectos 
+                .panel.crear-proyecto 
+                    a(href="/proyecto/crear", class="boton") Crear Proyecto
+                .panel.lista-proyectos
+                    h2 Proyectos
+                    ul#proyectos.proyectos
+                        if(projects.length)
+                            each project in projects 
+                                li 
+                                    a(href=`/proyecto/${project.url}`) #{project.name}
+
+            block content
+    script(src="/dist/bundle.js") 

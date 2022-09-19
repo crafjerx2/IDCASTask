@@ -1,0 +1,29 @@
+doctype html
+html(lang="en")
+    include ../partials/head
+    body.login 
+        .contenedor-formulario
+            h1 Crear cuenta en IDCAS Task
+
+            if locals.messages
+                .alertas 
+                    each category in Object.keys(locals.messages)
+                        each error in messages[category]
+                            .alerta(class=`${category}`)
+                                p= error
+
+            form#formulario.caja.caja-login(method="POST" action="/registro")
+                .campo
+                    label(for="email") Email: 
+                    input(type="email" name="email" placeholder="Tu email" value= email) 
+                
+                .campo
+                    label(for="password") Contraseña: 
+                    input(type="password" name="password" placeholder="Tu contraseña" )
+                
+                .campo.enviar 
+                    input.boton(type="submit", value="Crear cuenta")
+
+                .campo 
+                    a(href="/usuario/login") Iniciar sesión
+

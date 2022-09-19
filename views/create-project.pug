@@ -1,0 +1,14 @@
+extends layout 
+
+include mixins/form
+
+block content 
+    .contenido-principal
+        h1 #{titlePage}
+
+        if errors
+            each error in errors
+                .alerta.error= error.text
+        +projectForm(project)
+
+        
