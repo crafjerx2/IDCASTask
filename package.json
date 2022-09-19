@@ -2,10 +2,11 @@
   "name": "idcas-work",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "dev": "nodemon app.js",
-    "start": "concurrently \"npm run dev \" \"npm run watch\" ",
+    "local:dev": "concurrently \"npm run dev \" \"npm run watch\" ",
+    "start": "node ./app.js",
     "watch": "webpack -w --mode development"
   },
   "keywords": [],

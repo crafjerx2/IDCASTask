@@ -157,6 +157,7 @@ body.index {
 }
 .crear-proyecto a {
     color: white;
+    width: 256px;
 }
 
 .lista-proyectos ul{

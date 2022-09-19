@@ -5,12 +5,9 @@ const htmlToText = require('html-to-text')
 const util = require('util')
 const emailConfig = require('../config/email')
 
-console.log({ emailConfig })
-
 let transport = nodeMailer.createTransport({
     host: emailConfig.host,
     port: emailConfig.port,
-    secure: true,
     auth: {
       user: emailConfig.user, 
       pass: emailConfig.pass, 
